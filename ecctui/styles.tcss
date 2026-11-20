@@ -1,0 +1,118 @@
+/* ecctui: ECOS Mission Control */
+Screen { background: $background; layers: base overlay; }
+* { scrollbar-size-vertical: 1; scrollbar-background: #1B1716; scrollbar-color: #3A302B; scrollbar-color-hover: $primary; scrollbar-color-active: $primary; }
+
+/* ---------------------------------------------------------------- home */
+#hero { height: 8; background: $surface; border: round #3A302B; border-title-color: $primary; border-title-style: bold;
+        border-subtitle-color: #8C8079; padding: 0 2; margin: 0 1; }
+#logo { width: 38; height: 6; }
+#hero-info { width: 1fr; height: 6; padding: 0 0 0 3; content-align: left middle; }
+#search { margin: 0 1; background: $panel; border: tall #3A302B; }
+#search:focus { border: tall $primary; }
+#cards-scroll { height: 1fr; margin: 0 1; padding: 0; }
+#cards { height: auto; grid-gutter: 0 1; grid-rows: 7; padding: 1 0 0 0; }
+ChipCard { height: 7; border: round #3A302B; background: $surface; padding: 0 1;
+           border-title-color: $secondary; border-title-style: bold; }
+ChipCard:hover { border: round #6B4A33; }
+ChipCard:focus { border: heavy $primary; background: #2E241F; border-title-color: $accent; }
+#card-new { border: round dashed #3A302B; background: $background; }
+#card-new:focus { border: heavy $primary; background: #2E241F; }
+
+/* ---------------------------------------------------------------- chip */
+#chip-body { height: 1fr; }
+#flow-panel { width: 34; border: round #3A302B; background: $surface; border-title-color: $primary; border-title-style: bold; padding: 0 0 0 1; }
+#flow-panel:focus-within { border: round $primary; }
+#flow-scroll { height: 1fr; }
+#flow-foot { height: auto; min-height: 2; margin: 0 1 0 0; color: #8C8079; border-top: solid #3A302B; }
+MetroLine { width: 100%; }
+#center { width: 1fr; }
+DieMap { height: 1fr; border: round #3A302B; background: $surface; border-title-color: $primary; border-title-style: bold;
+         border-subtitle-color: $accent; }
+#drawer { height: 10; border: round #3A302B; background: $surface; border-title-color: $primary; border-title-style: bold; padding: 0 1; }
+#d-head { height: 1; }
+#d-actions { height: 1; margin: 1 0 0 0; }
+#d-actions Button { min-width: 0; width: auto; margin-right: 2; height: 1; border: none; padding: 0 1; background: $panel; color: $foreground; }
+#d-actions Button.-primary { background: $primary; color: $background; text-style: bold; }
+#d-actions Button:hover { background: $secondary; color: $background; }
+#d-log { height: 4; margin: 1 0 0 0; }
+#health-panel { width: 32; border: round #3A302B; background: $surface; border-title-color: $primary; border-title-style: bold; padding: 0 1; }
+
+/* -------------------------------------------------------------- timing */
+#t-body { height: 1fr; }
+#t-left { width: 1fr; border: round #3A302B; background: $surface; border-title-color: $primary; border-title-style: bold;
+          border-subtitle-color: #8C8079; padding: 1 1; }
+#matrix { height: auto; }
+#t-right { width: 38; border: round #3A302B; background: $surface; border-title-color: $primary; border-title-style: bold; padding: 1 1; }
+#t-right Static { height: auto; margin-bottom: 1; }
+
+/* ------------------------------------------------------------- toasts */
+Toast { background: $panel; border-left: thick $primary; }
+Toast.-information { border-left: thick $success; }
+Toast.-error { border-left: thick $error; }
+Toast.-warning { border-left: thick $warning; }
+
+/* ------------------------------------------------------------- inputs */
+Button { background: $panel; color: $foreground; border: none; border-top: tall $panel-lighten-1; border-bottom: tall $panel-darken-1; }
+Button:hover { background: $primary 40%; }
+Button.-primary { background: $primary; color: $background; text-style: bold; border-top: tall $secondary; border-bottom: tall #A04A00; }
+Button.-error { background: $error; color: $background; }
+Button:disabled { opacity: 45%; }
+Select { width: 1fr; }
+SelectCurrent { background: $panel; border: tall $panel-lighten-1; }
+Select:focus > SelectCurrent { border: tall $primary; }
+Input { background: $panel; border: tall $panel-lighten-1; }
+Input:focus { border: tall $primary; }
+TextArea { background: $panel; border: tall $panel-lighten-1; }
+TextArea:focus { border: tall $primary; }
+RichLog { background: $surface; border: round #3A302B; height: 1fr; }
+Tree { background: $surface; scrollbar-size-horizontal: 0; }
+Tree > .tree--cursor { background: $primary 35%; }
+Tree:focus > .tree--cursor { background: $primary 55%; color: $foreground; text-style: bold; }
+Checkbox { background: transparent; border: none; }
+
+/* -------------------------------------------------------------- modals */
+ModalScreen { align: center middle; background: #000000 60%; }
+.dialog { width: 76; height: auto; max-height: 90%; padding: 1 2; background: $surface; border: heavy $primary; }
+.dialog.small { width: 64; }
+.dialog.wide { width: 90; }
+.dialog.pop { width: 70; }
+.dialog.wiz { width: 80; }
+.dialog.fail { width: 90; border: heavy $error; }
+.dialog.logdlg { width: 130; max-width: 96%; height: 85%; }
+.dialog.logdlg RichLog { height: 1fr; }
+.dialog.output { width: 110; height: 85%; }
+.dialog.output Tree, .dialog.output RichLog { height: 1fr; }
+.dlg-title { color: $primary; text-style: bold; padding-bottom: 1; }
+.fail-title { color: $error; }
+.dlg-body { padding-bottom: 1; }
+.fail-log { background: $background; padding: 0 1; margin: 1 0; border-left: thick $error; height: auto; }
+.cmd-preview { background: $background; color: $accent; padding: 0 1; margin: 1 0; border-left: thick $primary; height: auto; }
+.buttons { height: auto; align-horizontal: right; margin-top: 1; }
+.buttons Button { margin-left: 2; }
+.sets { height: 5; }
+#steprow { height: auto; }
+#steprow > Vertical { height: auto; width: 1fr; margin-right: 1; }
+.dialog Label { color: #B8AAA0; margin-top: 1; }
+.dialog .dlg-title { margin-top: 0; }
+#wiz-steps { margin-bottom: 1; }
+#w0, #w1, #w2 { height: auto; }
+
+/* onboarding */
+OnboardingScreen { align: center middle; background: #000000 75%; }
+#tour-box { width: 118; max-width: 96%; height: auto; padding: 1 2; background: $surface; border: heavy $primary; }
+#tour-title { width: 100%; content-align: center middle; color: $primary; text-style: bold; }
+#tour-cards { height: auto; }
+.tour-card { width: 1fr; height: auto; margin: 1 1 0 1; padding: 1 2; background: $panel; border: round #3A302B; }
+.tour-art { height: 6; margin-bottom: 1; }
+.tour-h { color: $accent; text-style: bold; margin: 0; }
+.tour-p { color: $foreground; margin-top: 1; height: 5; }
+
+Confetti { background: transparent; }
+
+/* command palette */
+CommandPalette { align: center top; background: #000000 60%; }
+CommandPalette > Vertical { width: 72%; min-width: 64; max-width: 110; margin-top: 2; background: $surface; border: heavy $primary; }
+CommandPalette #--input { background: $panel; }
+CommandPalette Input { border: none; background: $panel; }
+CommandList { background: $surface; }
+CommandList > .option-list--option-highlighted { background: $primary 45%; }

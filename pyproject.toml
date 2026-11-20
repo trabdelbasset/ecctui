@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecctui"
+version = "0.1.0"
+description = "ECOS Mission Control: a terminal UI for the ECC rtl2gds flow CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "textual>=8.2.8",
+]
+
+[project.scripts]
+ecctui = "ecctui.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["ecctui*"]
+
+[tool.setuptools.package-data]
+ecctui = ["*.tcss"]
